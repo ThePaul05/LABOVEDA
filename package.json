@@ -1,0 +1,25 @@
+{
+  "name": "la-boveda",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API de secretos con quorum, JWT, Sequelize/MySQL y Mongoose/MongoDB",
+  "main": "src/server.js",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test tests/*.test.js",
+    "test:e2e": "node scripts/probar-api.mjs"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^9.0.0",
+    "mysql2": "^3.0.0",
+    "sequelize": "^6.37.0"
+  }
+}
