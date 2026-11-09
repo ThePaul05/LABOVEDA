@@ -1,0 +1,31 @@
+erDiagram
+    USUARIO_MYSQL {
+        int id PK
+        string nombre
+        string email UK
+        string password_bcrypt
+        enum rol
+    }
+    SECRETO_MONGODB {
+        ObjectId _id PK
+        string titulo
+        string contenido
+        int creadoPor FK
+        date fechaApertura
+    }
+    SOLICITUD_EMBEBIDA {
+        int userId FK
+        date fecha
+    }
+    TOKEN_REVELACION_MONGODB {
+        string jti PK
+        ObjectId secretoId FK
+        int usuarioId FK
+        date expiraEn
+        boolean usado
+    }
+    USUARIO_MYSQL ||--o{ SECRETO_MONGODB : crea
+    USUARIO_MYSQL ||--o{ SOLICITUD_EMBEBIDA : solicita
+    SECRETO_MONGODB ||--o{ SOLICITUD_EMBEBIDA : contiene
+    USUARIO_MYSQL ||--o{ TOKEN_REVELACION_MONGODB : autoriza
+    SECRETO_MONGODB ||--o{ TOKEN_REVELACION_MONGODB : habilita
